@@ -1,6 +1,6 @@
 # test_github_actions_flutter
 
-A new Flutter project.
+A Flutter test project using GitHub actions.
 
 ## Getting Started
 
