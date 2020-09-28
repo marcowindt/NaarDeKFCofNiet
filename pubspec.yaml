@@ -1,5 +1,5 @@
-name: test_github_actions_flutter
-description: A new Flutter project.
+name: naar_de_kfc_of_niet
+description: App die je inzicht geeft of je naar de KFC moet wanneer in je in de buurt bent.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -24,6 +24,10 @@ dependencies:
   flutter:
     sdk: flutter
 
+  firebase_core:
+  firebase_analytics:
+  firebase_auth:
+  firebase_crashlytics:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

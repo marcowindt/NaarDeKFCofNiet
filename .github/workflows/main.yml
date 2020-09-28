@@ -27,5 +27,5 @@ jobs:
     - run: flutter build ios --release --no-codesign
     - uses: actions/upload-artifact@v2
       with:
-        name: Anytimers appbundle
+        name: Test apk
         path: build/app/outputs/flutter-apk/app-release.apk
