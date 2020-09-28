@@ -25,7 +25,7 @@ jobs:
     - run: flutter test
     - run: |
         mkdir $HOME/secrets
-        gpg --quiet --batch --yes --decrypt --passphrase="$SECRET_PASSPHRASE" \
+        gpg --quiet --batch --yes --decrypt --passphrase="${{secrets.SECRET_PASSPHRASE}}" \
         --output $HOME/secrets/secrets.tar secrets.tar.gpg
         tar xvf $HOME/secrets/secrets.tar
     - run: flutter build apk
