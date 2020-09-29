@@ -41,5 +41,5 @@ jobs:
         appId: ${{secrets.FIREBASE_ANDROID_APPID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: alten
-        release_notes: "A new version of the beloved app."
+        releaseNotes: "A new version of the beloved app."
         file: build/app/outputs/apk/release/app-release.apk
