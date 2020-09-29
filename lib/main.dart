@@ -84,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.red,
       appBar: AppBar(
+        centerTitle: true,
         elevation: 0.0,
         title: Text(widget.title),
       ),
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: RaisedButton(
         padding: const EdgeInsets.all(20.0),
         onPressed: _changeAnswer,
