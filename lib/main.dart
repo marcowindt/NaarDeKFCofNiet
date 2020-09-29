@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
+import 'package:naar_de_kfc_of_niet/models/current_setting.dart';
+import 'package:naar_de_kfc_of_niet/repo/answers.dart';
+import 'package:naar_de_kfc_of_niet/widgets/current_answer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,12 +54,29 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _answer = "Nee";
+  StreamSubscription _sub;
+  CurrentSetting _setting;
+
+  @override
+  void initState() {
+    _sub = Answers.getCurrentSetting().listen((CurrentSetting setting) {
+      setState(() {
+        _setting = setting;
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _sub.cancel();
+    super.dispose();
+  }
 
   void _changeAnswer() {
-    setState(() {
-      _answer = "Ja!";
-    });
+    if (_setting != null) {
+      Answers.changeAnswer(_setting);
+    }
   }
 
   @override
@@ -70,10 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text("Het antwoord op uw levensvraag is"),
-            Text(
-              '$_answer',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            CurrentAnswer(_setting)
           ],
         ),
       ),
